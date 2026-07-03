@@ -1,0 +1,374 @@
+/* ==========================================
+   VARIABLES BASE Y MODO CLARO
+========================================== */
+:root,
+[data-bs-theme="light"] {
+  --brand-oscuro: #150529;
+  --brand-violeta-oscuro: #6900ff;
+  --brand-violeta-claro: #ab94ff;
+  --brand-claro: #f7f3ff;
+
+  --font-titulo: "Inter", sans-serif;
+  --font-subtitulo: "Outfit", sans-serif;
+  --font-parrafo: "Inter", sans-serif;
+
+  --bg-principal: var(--brand-claro);
+  --bg-secundario: #ede5ff;
+  --text-principal: var(--brand-oscuro);
+  --accent-color: var(--brand-violeta-oscuro);
+
+  --bs-body-bg: var(--bg-principal);
+  --bs-body-color: var(--text-principal);
+
+  /* Variables Translúcidas */
+  --bg-glass: rgba(255, 255, 255, 0.45);
+  --border-glass: rgba(105, 0, 255, 0.15);
+  --shadow-glass: 0 8px 32px 0 rgba(21, 5, 41, 0.08);
+}
+
+/* ==========================================
+   VARIABLES MODO OSCURO
+========================================== */
+[data-bs-theme="dark"] {
+  --bg-principal: var(--brand-oscuro);
+  --bg-secundario: #1e0b36;
+  --text-principal: var(--brand-claro);
+  --accent-color: var(--brand-violeta-claro);
+
+  --bs-body-bg: var(--bg-principal);
+  --bs-body-color: var(--text-principal);
+
+  /* Variables Translúcidas (Glassmorphism) */
+  --bg-glass: rgba(30, 11, 54, 0.4);
+  --border-glass: rgba(171, 148, 255, 0.15);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
+}
+
+.font-subtitulo {
+  font-family: var(--font-subtitulo);
+}
+.text-accent {
+  color: var(--accent-color);
+}
+.icon-size-sm {
+  width: 48px;
+}
+.icon-size-md {
+  width: 50px;
+}
+
+.theme-btn-size {
+  width: 38px;
+  height: 38px;
+}
+
+/* ==========================================
+   EFECTO GLASSMORPHISM 
+========================================== */
+.glass {
+  background: var(--bg-glass) !important;
+  border-radius: 20px;
+  box-shadow: var(--shadow-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass) !important;
+  padding: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+/* ==========================================
+   HEADER & NAV
+========================================== */
+header {
+  width: 100%;
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-glass);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+#logo {
+  font-size: 0;
+  width: 110px;
+  height: 38px;
+  background: url(./recursos/logo_blanco.png) center/contain no-repeat;
+  transition: filter 0.3s ease;
+}
+
+.navbar-toggler {
+  border: 0 !important;
+}
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* ==========================================
+   BOTONES 
+========================================== */
+.btn {
+  text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 8px;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+.btn-primary {
+  background-color: var(--accent-color) !important;
+  border-color: var(--accent-color) !important;
+  color: #fff !important;
+}
+
+[data-bs-theme="dark"] .btn-primary {
+  color: var(--brand-oscuro) !important;
+  font-weight: 700 !important;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(105, 0, 255, 0.35) !important;
+  opacity: 0.95;
+}
+
+.btn-outline-primary {
+  background-color: transparent !important;
+  border: 1.5px solid var(--accent-color) !important;
+  color: var(--accent-color) !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--accent-color) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+
+[data-bs-theme="dark"] .btn-outline-primary:hover {
+  color: var(--brand-oscuro) !important;
+}
+
+/* ==========================================
+  MODO LIGHT (LOGOS)
+========================================== */
+[data-bs-theme="light"] #logo,
+[data-bs-theme="light"] #footer-logo {
+  filter: brightness(0.1) !important;
+}
+
+/* ==========================================
+   SECCIONES
+========================================== */
+
+/* INICIO & CAROUSEL */
+#inicio {
+  height: 100vh;
+  min-height: 650px;
+}
+
+.carousel-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(21, 5, 41, 0.85) 0%,
+    rgba(21, 5, 41, 0.4) 60%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+.carousel-item img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  z-index: 2 !important;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.carousel-indicators {
+  z-index: 3;
+  margin-bottom: 2.5rem;
+}
+
+.carousel-indicators button {
+  width: 35px !important;
+  height: 5px !important;
+  border-radius: 10px !important;
+  background-color: #ffffff !important;
+  opacity: 0.3 !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-indicators button.active {
+  width: 50px !important;
+  opacity: 1 !important;
+  background-color: var(--brand-violeta-claro) !important;
+}
+
+#inicio::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to top, var(--bg-principal), transparent);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* NOSOTROS */
+#nosotros {
+  background-color: var(--bg-principal);
+  padding: 6rem 0;
+}
+
+/* SERVICIOS */
+#servicios {
+  background: linear-gradient(
+    180deg,
+    var(--bg-principal) 0%,
+    var(--bg-secundario) 100%
+  );
+  padding: 6rem 0;
+}
+
+/* BANNER LOGOS Y VIDEO */
+#logos {
+  min-height: 60vh;
+  position: relative;
+  padding: 5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    var(--bg-secundario) 0%,
+    var(--bg-glass) 50%,
+    var(--bg-secundario) 100%
+  );
+}
+
+/* PROYECTOS */
+#proyectos {
+  background: linear-gradient(
+    180deg,
+    var(--bg-secundario) 0%,
+    var(--bg-principal) 100%
+  );
+  padding: 6rem 0;
+}
+
+/* CONTACTO */
+#contacto {
+  background: radial-gradient(
+    circle at 80% 50%,
+    var(--bg-secundario) 0%,
+    var(--bg-principal) 70%
+  );
+  padding: 6rem 0;
+}
+
+/* FORMULARIO */
+.form-control {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--border-glass);
+  color: var(--text-principal) !important;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+[data-bs-theme="light"] .form-control {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.25rem rgba(105, 0, 255, 0.2);
+}
+
+[data-bs-theme="light"] .form-control:focus {
+  background-color: #ffffff !important;
+}
+
+/* FOOTER */
+
+#footer {
+  background-color: var(--bg-principal);
+}
+
+/* TARJETAS */
+.cards {
+  background: var(--bg-glass) !important;
+  border: 1px solid var(--border-glass) !important;
+  border-radius: 20px !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-glass);
+  overflow: hidden;
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease;
+}
+
+.cards:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-color) !important;
+}
+
+.cards .card-body {
+  background-color: transparent !important;
+  padding: 2.5rem !important;
+}
+
+.img-proyecto {
+  height: 320px;
+  width: 100%;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border-glass);
+}
